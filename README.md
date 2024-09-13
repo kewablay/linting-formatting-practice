@@ -1,27 +1,32 @@
-# LintingFormattingPractice
+# Angular Code Quality Enforcer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+## Project Description
 
-## Development server
+This Angular project integrates ESLint and Prettier to enforce code quality and consistency across the codebase. It includes configurations to lint TypeScript and HTML files and format code using Prettier. The project demonstrates best practices for maintaining high code quality and consistent style.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ESLint Configuration
 
-## Code scaffolding
+### Configuration Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Base Configuration**: Extended from recommended Angular and ESLint configurations to cover common linting rules and best practices.
+- **Custom Rules**: Added specific rules to enforce consistent code style and prevent common mistakes.
+  - **`semi`**: Enforces the use of semicolons at the end of statements.
+  - **`no-console`**: Warns about console statements to avoid leaving debug logs in production code.
 
-## Build
+### .eslintrc.json
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The `.eslintrc.json` file has been configured to extend Angular's recommended settings and include custom rules. Below is an example configuration:
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```json
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@angular-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "semi": ["error", "always"],
+    "no-console": "warn"
+  }
+}
+```
